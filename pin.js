@@ -38,28 +38,27 @@ function searchFunctionality() {
     document.querySelector(".overlay").style.display = "none";
   });
   input.addEventListener("input", function () {
-    const fiteredArray = arr.filter(obj => obj.name.toLowerCase().startsWith(input.value));
+    const fiteredArray = arr.filter((obj) =>
+      obj.name.toLowerCase().startsWith(input.value)
+    );
     var clutter = "";
     var clutter2 = "";
-    fiteredArray.forEach(function(obj){
-      clutter += `
-      <div class="card">
+    fiteredArray.forEach(function (obj) {
+      clutter += `<div class="card">
       <img src="${obj.image}" alt="${obj.name}">
-      </div>
-      `;
+      </div>`;
     });
-    document.querySelector(".searchdata").style.display = "flex";
     document.querySelector(".content").innerHTML = clutter;
-
-    fiteredArray.forEach(function(obj){
-        clutter2 += `<div class="searchtext">
-              <i class="ri-search-line"></i>
-              <h6>${obj.name}</h6>
-            </div>`;
+    fiteredArray.forEach(function (obj) {
+      clutter2 += `<div class="searchtext">
+      <i class="ri-search-line"></i>
+      <h6>${obj.name}</h6>
+      </div>`;
     });
-    // document.querySelector(".searchdata").innerHTML = clutter;
-    document.querySelector(".content").innerHTML = clutter2;
+    document.querySelector(".searchdata").style.display = "block";
+    document.querySelector(".searchdata").innerHTML = clutter2;
+    document.querySelector(".content").innerHTML = clutter;
   });
 }
-searchFunctionality();
 showeThecards();
+searchFunctionality();
