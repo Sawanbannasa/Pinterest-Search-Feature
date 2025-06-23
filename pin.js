@@ -40,14 +40,25 @@ function searchFunctionality() {
   input.addEventListener("input", function () {
     const fiteredArray = arr.filter(obj => obj.name.toLowerCase().startsWith(input.value));
     var clutter = "";
+    var clutter2 = "";
     fiteredArray.forEach(function(obj){
-        clutter += `<div class="searchtext">
+      clutter += `
+      <div class="card">
+      <img src="${obj.image}" alt="${obj.name}">
+      </div>
+      `;
+    });
+    document.querySelector(".searchdata").style.display = "flex";
+    document.querySelector(".content").innerHTML = clutter;
+
+    fiteredArray.forEach(function(obj){
+        clutter2 += `<div class="searchtext">
               <i class="ri-search-line"></i>
               <h6>${obj.name}</h6>
             </div>`;
-    })
-    document.querySelector(".searchdata").style.display = "flex";
-    document.querySelector(".searchdata").innerHTML = clutter;
+    });
+    // document.querySelector(".searchdata").innerHTML = clutter;
+    document.querySelector(".content").innerHTML = clutter2;
   });
 }
 searchFunctionality();
